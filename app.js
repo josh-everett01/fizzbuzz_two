@@ -1,4 +1,6 @@
+
 function fizzBuzz() {
+  createFizzBuzzUl()
   for (let number = 1; number <= 100; number++) {
     if (divisibileByThreeAndFive(number)) {
       appendToFizzBuzzUl('FizzBuzz', '#01FFC3')
@@ -13,6 +15,15 @@ function fizzBuzz() {
       appendToFizzBuzzUl(number, 'red');
     }
   }
+}
+
+function createFizzBuzzUl() {
+  let fizzBuzzUl = document.createElement('ul');
+  fizzBuzzUl.style.listStyleType = "none";
+  fizzBuzzUl.setAttribute('id', 'fizzbuzz-ul')
+  let fizzBuzzDiv = document.getElementById('fizzbuzz')
+  fizzBuzzDiv.appendChild(fizzBuzzUl);
+
 }
 
 function divisibileByThreeAndFive(number) {
@@ -34,15 +45,12 @@ function divisibleByFive(number) {
 }
 
 function appendToFizzBuzzUl(word, color) {
-  let fizzBuzzUl = document.createElement('ul');
-  fizzBuzzUl.style.listStyleType = "none";
   let fizzBuzzLi = document.createElement('li');
   let wordColor = fizzBuzzLi.style.color = color
   let fizzBuzzTextNode = document.createTextNode(word);
   fizzBuzzLi.appendChild(fizzBuzzTextNode);
+  let fizzBuzzUl = document.getElementById('fizzbuzz-ul')
   fizzBuzzUl.appendChild(fizzBuzzLi);
-  let fizzBuzzDiv = document.getElementById('fizzbuzz')
-  fizzBuzzDiv.appendChild(fizzBuzzUl);
 }
 
 fizzBuzz()
