@@ -1,3 +1,19 @@
 body {
   text-align: center;
+  background-color: #9d72ff;
+  font-family: "Courier New", Courier, monospace;
+  font-size: larger;
+  font-weight: bold;
+}
+
+h1 {
+  position: fixed;
+  color: hotpink;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+ul {
+  margin-top: 10%;
 }

@@ -1,30 +1,48 @@
-// if divisible by 3 and divisible by 5 / fizzbuzz
-// if / by 3 // fizz
-// if / by 5 // buzz
+function fizzBuzz() {
+  for (let number = 1; number <= 100; number++) {
+    if (divisibileByThreeAndFive(number)) {
+      appendToFizzBuzzUl('FizzBuzz', '#01FFC3')
+    }
+    else if (divisibleByThree(number)) {
+      appendToFizzBuzzUl('Fizz', '#01FFFF')
+    }
+    else if (divisibleByFive(number)) {
+      appendToFizzBuzzUl('Buzz', '#FFB3FD')
+    }
+    else {
+      appendToFizzBuzzUl(number, 'red');
+    }
+  }
+}
 
-function divisibileByThreeAndFive(i) {
-  if (i % 3 === 0 && i % 5 === 0) {
+function divisibileByThreeAndFive(number) {
+  if (number % 3 === 0 && number % 5 === 0) {
     return true
+  }
+}
+
+function divisibleByThree(number) {
+  if (number % 3 === 0) {
+    return true;
+  }
+}
+
+function divisibleByFive(number) {
+  if (number % 5 === 0) {
+    return true;
   }
 }
 
 function appendToFizzBuzzUl(word, color) {
   let fizzBuzzUl = document.createElement('ul');
+  fizzBuzzUl.style.listStyleType = "none";
   let fizzBuzzLi = document.createElement('li');
-  let fizzBuzzTextNode = document.createTextNode('FizzBuzz');
+  let wordColor = fizzBuzzLi.style.color = color
+  let fizzBuzzTextNode = document.createTextNode(word);
   fizzBuzzLi.appendChild(fizzBuzzTextNode);
   fizzBuzzUl.appendChild(fizzBuzzLi);
   let fizzBuzzDiv = document.getElementById('fizzbuzz')
   fizzBuzzDiv.appendChild(fizzBuzzUl);
-}
-
-function fizzBuzz() {
-  for (let i = 1; i <= 100; i++) {
-    if (divisibileByThreeAndFive(i)) {
-      appendToFizzBuzzUl('FizzBuzz')
-    }
-
-  }
 }
 
 fizzBuzz()
